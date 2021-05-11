@@ -1,6 +1,6 @@
 {
   "name": "@planetadeleste/vue-mc-orders",
-  "version": "1.0.47",
+  "version": "1.0.48",
   "description": "Vue models and collections for API Orders Shopaholic plugin",
   "main": "dist/vue-mc-orders.js",
   "module": "dist/vue-mc-orders.es.js",
@@ -47,6 +47,11 @@
     "url": "https://github.com/planetadeleste/vue-mc-orders/issues"
   },
   "homepage": "https://github.com/planetadeleste/vue-mc-orders#readme",
+  "files": [
+    "dist",
+    "src/index.d.ts",
+    "src/types"
+  ],
   "keywords": [
     "vuemc",
     "vue",
