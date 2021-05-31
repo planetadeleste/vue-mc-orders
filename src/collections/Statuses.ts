@@ -8,7 +8,7 @@ export default class Statuses extends Collection<Status> {
 
   routes(): Record<string, any> {
     return {
-      fetch: "orders.index"
+      fetch: "orders.status.index"
     };
   }
 }

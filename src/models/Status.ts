@@ -20,10 +20,10 @@ export default class Status extends Model {
 
   routes(): Record<string, any> {
     return {
-      fetch: "orders.show",
-      create: "orders.store",
-      update: "orders.update",
-      delete: "orders.destroy"
+      fetch: "orders.status.show",
+      create: "orders.status.store",
+      update: "orders.status.update",
+      delete: "orders.status.destroy"
     };
   }
 }
