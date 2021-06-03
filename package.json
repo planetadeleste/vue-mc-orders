@@ -58,5 +58,8 @@
     "mc",
     "shopaholic",
     "orders"
-  ]
+  ],
+  "peerDependencies": {
+    "@planetadeleste/vue-mc-shopaholic": "^1.1.10"
+  }
 }

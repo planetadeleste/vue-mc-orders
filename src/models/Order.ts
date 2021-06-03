@@ -1,4 +1,5 @@
 import { Model } from "@planetadeleste/vue-mc";
+import { StatResponse } from "@planetadeleste/vue-mc-shopaholic";
 import { toNumber } from "lodash";
 import { Response } from "vue-mc";
 import { OrderPositionData } from "../types/Order";
@@ -70,6 +71,7 @@ export default class Order extends Model {
       update: "orders.update",
       delete: "orders.destroy",
       position: "orders.position",
+      stats: "orders.stats",
     };
   }
 
@@ -80,5 +82,9 @@ export default class Order extends Model {
 
     const obPosition = obResponse.getData().data;
     this.set("order_position", obPosition);
+  }
+
+  async stats(): Promise<Response<StatResponse>> {
+    return await this.createCustomRequest("stats");
   }
 }

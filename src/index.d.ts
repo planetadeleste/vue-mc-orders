@@ -1,4 +1,5 @@
 import "@planetadeleste/vue-mc";
+import "@planetadeleste/vue-mc-shopaholic";
 import { RequestOptions } from "vue-mc";
 import {
   CartComponentAddData,
@@ -21,6 +22,7 @@ import {
 } from "./types";
 
 declare module "@planetadeleste/vue-mc-orders" {
+  import { StatResponse } from "@planetadeleste/vue-mc-shopaholic";
   import { Model, Collection } from "@planetadeleste/vue-mc";
   import { Response } from "vue-mc";
   export type ResponseResult<T> = Response<T>;
@@ -111,6 +113,7 @@ declare module "@planetadeleste/vue-mc-orders" {
     store(
       options?: RequestOptions
     ): Promise<Response<MakeOrderResponseData | any> | null>;
+    stats(): Promise<Response<StatResponse>>;
   }
   export class Orders extends Collection<Order> {}
 

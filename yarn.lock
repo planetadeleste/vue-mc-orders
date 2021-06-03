@@ -917,6 +917,16 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
+"@planetadeleste/vue-mc-shopaholic@^1.1.10":
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/@planetadeleste/vue-mc-shopaholic/-/vue-mc-shopaholic-1.1.10.tgz#0966ee71c3f98b42e58d24b7ca1a6dc492b14cf2"
+  integrity sha512-GcJ7q4FCduNMjFFX/Zxcp7Tt6PinLntc5NlBNKSirpD+ONXnyRakOZNqUu2RlaroLsKSct4XPSGQtMvl8ACn2w==
+  dependencies:
+    "@planetadeleste/vue-mc" "^1.0.77"
+    axios "^0.21.1"
+    object-to-formdata "^4.1.0"
+    vue-mc "^0.6.0"
+
 "@planetadeleste/vue-mc@^1.0.77":
   version "1.0.85"
   resolved "https://registry.yarnpkg.com/@planetadeleste/vue-mc/-/vue-mc-1.0.85.tgz#e8dfce3cfc71abf507f62686d80df7a6db72acec"
@@ -1194,7 +1204,7 @@ axios@0.19.0:
     follow-redirects "1.5.10"
     is-buffer "^2.0.2"
 
-axios@^0.21.0:
+axios@^0.21.0, axios@^0.21.1:
   version "0.21.1"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
   integrity sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==
