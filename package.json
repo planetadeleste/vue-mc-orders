@@ -1,6 +1,6 @@
 {
   "name": "@planetadeleste/vue-mc-orders",
-  "version": "1.0.49",
+  "version": "1.0.50",
   "description": "Vue models and collections for API Orders Shopaholic plugin",
   "main": "dist/vue-mc-orders.js",
   "module": "dist/vue-mc-orders.es.js",
