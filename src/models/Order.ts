@@ -78,7 +78,7 @@ export default class Order extends Model {
   async loadPosition(): Promise<void> {
     const obResponse: Response<
       OrderPositionData[]
-    > = await this.createCustomRequest("position", ["secret_key"]);
+    > = await this.createCustomRequest("position", ["secret_key", "id"]);
 
     const obPosition = obResponse.getData().data;
     this.set("order_position", obPosition);
