@@ -125,5 +125,12 @@ declare module "@planetadeleste/vue-mc-orders" {
   class Status extends Model {}
   export class Statuses extends Collection<Status> {}
 
-  export { Cart, Order, PaymentMethod, Status };
+  interface OrderPosition extends Model, OrderPositionData {}
+  class OrderPosition extends Model {}
+  export class OrderPositions extends Collection<OrderPosition> {
+    id: number;
+    secret_key: string;
+  }
+
+  export { Cart, Order, OrderPosition, PaymentMethod, Status };
 }

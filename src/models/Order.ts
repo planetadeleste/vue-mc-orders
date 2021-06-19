@@ -1,8 +1,9 @@
+import OrderPositions from "@/collections/OrderPositions";
 import { Model } from "@planetadeleste/vue-mc";
 import { StatResponse } from "@planetadeleste/vue-mc-shopaholic";
 import { toNumber } from "lodash";
 import { Response } from "vue-mc";
-import { OrderPositionData } from "../types/Order";
+import { OrderPositionData } from "../types/OrderPosition";
 
 export default class Order extends Model {
   defaults(): Record<string, any> {
@@ -70,15 +71,19 @@ export default class Order extends Model {
       create: "orders.create",
       update: "orders.update",
       delete: "orders.destroy",
-      position: "orders.position",
       stats: "orders.stats",
     };
   }
 
   async loadPosition(): Promise<void> {
-    const obResponse: Response<
-      OrderPositionData[]
-    > = await this.createCustomRequest("position", ["secret_key", "id"]);
+    const obOrderPositions = new OrderPositions();
+    obOrderPositions.set({ id: this.id, secret_key: this.secret_key });
+    const obResponse: Response<OrderPositionData[]> | null =
+      await obOrderPositions.fetch();
+
+    if (!obResponse) {
+      return;
+    }
 
     const obPosition = obResponse.getData().data;
     this.set("order_position", obPosition);
