@@ -19,7 +19,7 @@ export default class OrderPosition extends Model {
   routes(): Record<string, any> {
     return {
       fetch: "orders.position",
-      create: "orders.positions.create",
+      create: "orders.positions.store",
       update: "orders.positions.update",
       delete: "orders.positions.destroy",
     };
