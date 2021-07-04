@@ -115,7 +115,7 @@ declare module "@planetadeleste/vue-mc-orders" {
     store(
       options?: RequestOptions
     ): Promise<Response<MakeOrderResponseData | any> | null>;
-    stats(): Promise<Response<StatResponse>>;
+    stats(): Promise<Response<OrderStatsResponse>>;
   }
   export class Orders extends Collection<Order> {}
 
