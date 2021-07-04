@@ -1,9 +1,9 @@
 import OrderPositions from "@/collections/OrderPositions";
+import { OrderStatsResponse } from "@/types/OrderStatsResponse";
+import { OrderPositionData } from "@/types/OrderPosition";
 import { Model } from "@planetadeleste/vue-mc";
-import { StatResponse } from "@planetadeleste/vue-mc-shopaholic";
 import { toNumber } from "lodash";
 import { Response } from "vue-mc";
-import { OrderPositionData } from "../types/OrderPosition";
 
 export default class Order extends Model {
   defaults(): Record<string, any> {
@@ -89,7 +89,7 @@ export default class Order extends Model {
     this.set("order_position", obPosition);
   }
 
-  async stats(): Promise<Response<StatResponse>> {
+  async stats(): Promise<Response<OrderStatsResponse>> {
     return await this.createCustomRequest("stats");
   }
 }
