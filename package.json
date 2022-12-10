@@ -61,5 +61,8 @@
   ],
   "peerDependencies": {
     "@planetadeleste/vue-mc-shopaholic": "^1.1.10"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
