@@ -5,24 +5,24 @@ declare module "@planetadeleste/vue-mc-orders" {
     import {Collection, Model} from "@planetadeleste/vue-mc";
     import {RequestOptions, Response} from "vue-mc";
 
-    type CartComponentAddData = import("./types/Cart").CartComponentAddData;
-    type CartComponentAddItemData = import("./types/Cart").CartComponentAddItemData;
-    type CartComponentItemsData = import("./types/Cart").CartComponentItemsData;
-    type CartComponentPositionData = import("./types/Cart").CartComponentPositionData;
-    type CartComponentRemoveData = import("./types/Cart").CartComponentRemoveData;
-    type CartData = import("./types/Cart").CartData;
-    type CartPositionData = import("./types/Cart").CartPositionData;
-    type ItemPriceData = import("./types/Cart").ItemPriceData;
-    type MakeOrderResponseData = import("./types/Order").MakeOrderResponseData;
-    type OrderData = import("./types/Order").OrderData;
-    type OrderPositionData = import("./types/OrderPosition").OrderPositionData;
-    type OrderRequestData = import("./types/Order").OrderRequestData;
-    type OrderRequestOrderData = import("./types/Order").OrderRequestOrderData;
-    type OrderRequestUserData = import("./types/Order").OrderRequestUserData;
-    type OrderStatsResponse = import("./types/OrderStatsResponse").OrderStatsResponse;
-    type PaymentMethodData = import("./types/PaymentMethod").PaymentMethodData;
-    type StatusData = import("./types/Status").StatusData;
-    type TotalPriceContainerData = import("./types/Cart").TotalPriceContainerData;
+    type CartComponentAddData = import("./types").CartComponentAddData;
+    type CartComponentAddItemData = import("./types").CartComponentAddItemData;
+    type CartComponentItemsData = import("./types").CartComponentItemsData;
+    type CartComponentPositionData = import("./types").CartComponentPositionData;
+    type CartComponentRemoveData = import("./types").CartComponentRemoveData;
+    type CartData = import("./types").CartData;
+    type CartPositionData = import("./types").CartPositionData;
+    type ItemPriceData = import("./types").ItemPriceData;
+    type MakeOrderResponseData = import("./types").MakeOrderResponseData;
+    type OrderData = import("./types").OrderData;
+    type OrderPositionData = import("./types").OrderPositionData;
+    type OrderRequestData = import("./types").OrderRequestData;
+    type OrderRequestOrderData = import("./types").OrderRequestOrderData;
+    type OrderRequestUserData = import("./types").OrderRequestUserData;
+    type OrderStatsResponse = import("./types").OrderStatsResponse;
+    type PaymentMethodData = import("./types").PaymentMethodData;
+    type StatusData = import("./types").StatusData;
+    type TotalPriceContainerData = import("./types").TotalPriceContainerData;
 
     export type ResponseResult<T> = Response<T>;
 
