@@ -1,9 +1,9 @@
-import OrderPositions from "@/collections/OrderPositions";
-import { OrderStatsResponse } from "@/types/OrderStatsResponse";
-import { OrderPositionData } from "@/types/OrderPosition";
-import { Model } from "@planetadeleste/vue-mc";
-import { toNumber } from "lodash";
-import { Response } from "vue-mc";
+import OrderPositionCollection from '@/collections/OrderPositionCollection';
+import { OrderStatsResponse } from '@/types/OrderStatsResponse';
+import { OrderPositionData } from '@/types/OrderPosition';
+import { Model, Result } from '@planetadeleste/vue-mc';
+import { toNumber } from 'lodash';
+import { Response } from '@planetadeleste/vuemc';
 
 export default class Order extends Model {
   defaults(): Record<string, any> {
@@ -43,13 +43,13 @@ export default class Order extends Model {
       shipping_type_id: null,
       status: null,
       total_price_value: null,
-      weight: null,
+      weight: null
     };
   }
 
   mutations(): Record<string, any> {
     return {
-      id: (id: string) => toNumber(id) || null,
+      id: (id: string) => toNumber(id) || null
     };
   }
 
@@ -60,25 +60,25 @@ export default class Order extends Model {
   options(): Record<string, any> {
     return {
       methods: {
-        position: "GET",
-      },
+        position: 'GET'
+      }
     };
   }
 
   routes(): Record<string, any> {
     return {
-      fetch: "orders.show",
-      create: "orders.create",
-      update: "orders.update",
-      delete: "orders.destroy",
-      stats: "orders.stats",
+      fetch: 'orders.show',
+      create: 'orders.create',
+      update: 'orders.update',
+      delete: 'orders.destroy',
+      stats: 'orders.stats'
     };
   }
 
   async loadPosition(): Promise<void> {
-    const obOrderPositions = new OrderPositions();
+    const obOrderPositions = new OrderPositionCollection();
     obOrderPositions.set({ id: this.id, secret_key: this.secret_key });
-    const obResponse: Response<OrderPositionData[]> | null =
+    const obResponse: Response<Result<OrderPositionData[]>> | null =
       await obOrderPositions.fetch();
 
     if (!obResponse) {
@@ -86,10 +86,10 @@ export default class Order extends Model {
     }
 
     const obPosition = obResponse.getData().data;
-    this.set("order_position", obPosition);
+    this.set('order_position', obPosition);
   }
 
   async stats(): Promise<Response<OrderStatsResponse>> {
-    return await this.createCustomRequest("stats");
+    return await this.createCustomRequest('stats');
   }
 }

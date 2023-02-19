@@ -1,5 +1,5 @@
-import { Model } from "@planetadeleste/vue-mc";
-import { toNumber } from "lodash";
+import { Model } from '@planetadeleste/vue-mc';
+import { toNumber } from 'lodash';
 
 export default class PaymentMethod extends Model {
   defaults(): Record<string, any> {
@@ -24,10 +24,10 @@ export default class PaymentMethod extends Model {
 
   routes(): Record<string, any> {
     return {
-      fetch: "paymentmethods.show",
-      create: "paymentmethods.store",
-      update: "paymentmethods.update",
-      delete: "paymentmethods.destroy"
+      fetch: 'paymentmethods.show',
+      create: 'paymentmethods.store',
+      update: 'paymentmethods.update',
+      delete: 'paymentmethods.destroy'
     };
   }
 }

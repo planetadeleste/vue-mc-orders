@@ -1,4 +1,4 @@
-import { OfferData } from "@planetadeleste/vue-mc-shopaholic";
+import { OfferData } from '@planetadeleste/vue-mc-shopaholic';
 
 export interface OrderPositionData {
   id: number;

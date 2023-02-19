@@ -1,5 +1,5 @@
-import { OfferData } from "@bit/planetadeleste.shopaholic-mc.shopaholic/types/Offer";
-import { ProductData } from "@bit/planetadeleste.shopaholic-mc.shopaholic/types/Product";
+import { OfferData } from '@bit/planetadeleste.shopaholic-mc.shopaholic/types/Offer';
+import { ProductData } from '@bit/planetadeleste.shopaholic-mc.shopaholic/types/Product';
 
 export interface TotalPriceContainerData {
   price: string;

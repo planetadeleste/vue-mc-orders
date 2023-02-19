@@ -1,5 +1,5 @@
-import { Model } from "@planetadeleste/vue-mc";
-import { toNumber } from "lodash";
+import { Model } from '@planetadeleste/vue-mc';
+import { toNumber } from 'lodash';
 
 export default class Status extends Model {
   defaults(): Record<string, any> {
@@ -20,10 +20,10 @@ export default class Status extends Model {
 
   routes(): Record<string, any> {
     return {
-      fetch: "orders.status.show",
-      create: "orders.status.store",
-      update: "orders.status.update",
-      delete: "orders.status.destroy"
+      fetch: 'orders.status.show',
+      create: 'orders.status.store',
+      update: 'orders.status.update',
+      delete: 'orders.status.destroy'
     };
   }
 }

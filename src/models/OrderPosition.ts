@@ -1,5 +1,5 @@
-import { Model } from "@planetadeleste/vue-mc";
-import { toNumber } from "lodash";
+import { Model } from '@planetadeleste/vue-mc';
+import { toNumber } from 'lodash';
 
 export default class OrderPosition extends Model {
   defaults(): Record<string, any> {
@@ -8,7 +8,7 @@ export default class OrderPosition extends Model {
 
   mutations(): Record<string, any> {
     return {
-      id: (id: string) => toNumber(id) || null,
+      id: (id: string) => toNumber(id) || null
     };
   }
 
@@ -18,10 +18,10 @@ export default class OrderPosition extends Model {
 
   routes(): Record<string, any> {
     return {
-      fetch: "orders.position",
-      create: "orders.positions.store",
-      update: "orders.positions.update",
-      delete: "orders.positions.destroy",
+      fetch: 'orders.position',
+      create: 'orders.positions.store',
+      update: 'orders.positions.update',
+      delete: 'orders.positions.destroy'
     };
   }
 }

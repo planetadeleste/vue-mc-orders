@@ -1,7 +1,7 @@
-import { UserAddressData } from "@planetadeleste/vue-mc-shopaholic";
-import { RequestOptions, Response } from "vue-mc";
-import { StatusData } from "./Status";
-import { OrderPositionData } from "./OrderPosition";
+import { UserAddressData } from '@planetadeleste/vue-mc-shopaholic';
+import { RequestOptions, Response } from 'vue-mc';
+import { StatusData } from './Status';
+import { OrderPositionData } from './OrderPosition';
 
 export interface OrderData {
   id: number;
