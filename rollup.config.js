@@ -1,14 +1,14 @@
 /* eslint-disable no-undef */
-import pluginTypescript from "@rollup/plugin-typescript";
-import pluginCommonjs from "@rollup/plugin-commonjs";
-import pluginNodeResolve from "@rollup/plugin-node-resolve";
-import clear from "rollup-plugin-clear";
-import { babel } from "@rollup/plugin-babel";
-import * as path from "path";
-import pkg from "./package.json";
+import pluginTypescript from '@rollup/plugin-typescript';
+import pluginCommonjs from '@rollup/plugin-commonjs';
+import pluginNodeResolve from '@rollup/plugin-node-resolve';
+import { babel } from '@rollup/plugin-babel';
+import { terser } from '@wwa/rollup-plugin-terser';
+import * as path from 'path';
+import pkg from './package.json';
 
-const moduleName = pkg.name.replace(/^@.*\//, "");
-const inputFileName = "src/index.ts";
+const moduleName = pkg.name.replace(/^@.*\//, '');
+const inputFileName = 'src/index.ts';
 const author = pkg.author;
 const banner = `
   /**
@@ -20,8 +20,7 @@ const banner = `
 `;
 const arExternals = [
   ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.devDependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {}),
+  ...Object.keys(pkg.devDependencies || {})
 ];
 
 export default [
@@ -30,35 +29,35 @@ export default [
     output: [
       {
         file: pkg.module,
-        format: "es",
-        sourcemap: "inline",
+        format: 'es',
+        sourcemap: 'inline',
         banner,
-        exports: "named",
+        exports: 'named',
+        compact: true
       },
       {
         file: pkg.main,
-        format: "cjs",
-        sourcemap: "inline",
+        format: 'cjs',
+        sourcemap: 'inline',
         banner,
-        exports: "named",
-      },
+        exports: 'named',
+        compact: true
+      }
     ],
     external: arExternals,
     plugins: [
-      clear({
-        targets: ["dist"],
-      }),
       pluginTypescript(),
       pluginCommonjs({
-        extensions: [".js", ".ts"],
+        extensions: ['.js', '.ts']
       }),
       babel({
-        babelHelpers: "bundled",
-        configFile: path.resolve(__dirname, ".babelrc.js"),
+        babelHelpers: 'bundled',
+        configFile: path.resolve(__dirname, '.babelrc.js')
       }),
       pluginNodeResolve({
-        browser: false,
+        browser: false
       }),
-    ],
-  },
+      terser()
+    ]
+  }
 ];
