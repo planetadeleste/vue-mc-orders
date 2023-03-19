@@ -1,7 +1,7 @@
-import '@planetadeleste/vue-mc';
-import '@planetadeleste/vue-mc-shopaholic';
-import { Collection, Model } from '@planetadeleste/vue-mc';
-import { RequestOptions, Response } from 'vue-mc';
+import "@planetadeleste/vue-mc";
+import "@planetadeleste/vue-mc-shopaholic";
+import { Collection, Model } from "@planetadeleste/vue-mc";
+import { RequestOptions, Response } from "vue-mc";
 import {
   CartComponentAddData,
   CartComponentAddItemData,
@@ -19,13 +19,15 @@ import {
   OrderRequestUserData,
   OrderStatsResponse,
   PaymentMethodData,
+  ShippingTypeData,
   StatusData,
   TotalPriceContainerData
-} from './types';
+} from "./types";
 
 export type ResponseResult<T> = Response<T>;
 
-interface Cart extends Model, CartData {}
+interface Cart extends Model, CartData {
+}
 
 class Cart extends Model {
   getData(): Promise<ResponseResult<CartData>>;
@@ -86,9 +88,10 @@ class Cart extends Model {
   getItems(): Promise<ResponseResult<CartComponentItemsData>>;
 }
 
-interface Order extends Model, OrderData {}
+interface Order extends Model<OrderData>, OrderData {
+}
 
-class Order extends Model {
+class Order extends Model<OrderData> {
   loadPosition(): Promise<void>;
 
   store(
@@ -102,29 +105,46 @@ class OrderCollection extends Collection<Order> {
   list(): Promise<Response<OrderData[]>>;
 }
 
-interface PaymentMethod extends Model, PaymentMethodData {}
+interface PaymentMethod extends Model<PaymentMethodData>, PaymentMethodData {
+}
 
-class PaymentMethod extends Model {}
+class PaymentMethod extends Model<PaymentMethodData> {
+}
 
 class PaymentMethodCollection extends Collection<PaymentMethod> {
   list(): Promise<Response<PaymentMethodData[]>>;
 }
 
-interface Status extends Model, StatusData {}
+interface Status extends Model<StatusData>, StatusData {
+}
 
-class Status extends Model {}
+class Status extends Model<StatusData> {
+}
 
 class StatusCollection extends Collection<Status> {
   list(): Promise<Response<StatusData[]>>;
 }
 
-interface OrderPosition extends Model, OrderPositionData {}
+interface OrderPosition extends Model<OrderPositionData>, OrderPositionData {
+}
 
-class OrderPosition extends Model {}
+class OrderPosition extends Model<OrderPositionData> {
+}
 
 class OrderPositionCollection extends Collection<OrderPosition> {
   list(): Promise<Response<OrderPositionData[]>>;
 }
+
+interface ShippingType extends Model<ShippingTypeData>, ShippingTypeData {
+}
+
+class ShippingType extends Model<ShippingTypeData> {
+}
+
+class ShippingTypeCollection extends Collection<ShippingType> {
+  list(): Promise<Response<ShippingTypeData[]>>;
+}
+
 
 export {
   Cart,
@@ -141,17 +161,17 @@ export {
   OrderCollection,
   OrderData,
   OrderPosition,
-  OrderPositions,
   OrderPositionData,
   OrderRequestData,
   OrderRequestOrderData,
   OrderRequestUserData,
   OrderStatsResponse,
   PaymentMethod,
-  PaymentMethods,
   PaymentMethodData,
+  ShippingType,
+  ShippingTypeCollection,
+  ShippingTypeData,
   Status,
-  Statuses,
   StatusData,
   TotalPriceContainerData
 };

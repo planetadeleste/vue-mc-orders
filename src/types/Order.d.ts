@@ -2,6 +2,7 @@ import { UserAddressData } from '@planetadeleste/vue-mc-shopaholic';
 import { RequestOptions, Response } from 'vue-mc';
 import { StatusData } from './Status';
 import { OrderPositionData } from './OrderPosition';
+import { ShippingTypeData } from '@/types/ShippingType';
 
 export interface OrderData {
   id: number;
@@ -51,6 +52,7 @@ export interface OrderData {
   shipping_price?: string;
   shipping_price_value?: number;
   shipping_tax_percent?: number;
+  shipping_type?: ShippingTypeData;
 
   store(
     options: RequestOptions = {}
@@ -65,9 +67,10 @@ export interface OrderRequestOrderData {
 }
 
 export interface OrderRequestUserData {
-  [key: string]: any;
   email: string;
   name: string;
+
+  [key: string]: any;
 }
 
 export interface OrderRequestData {

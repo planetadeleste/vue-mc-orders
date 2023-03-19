@@ -1,6 +1,6 @@
 import { Collection } from '@planetadeleste/vue-mc';
 import { Response } from '@planetadeleste/vuemc';
-import Order from '../models/Order';
+import Order from '@/models/Order';
 import { OrderData } from '@/types';
 
 export default class OrderCollection extends Collection<Order> {

@@ -31,7 +31,7 @@ const writeTypes = (sModel) => {
     .content(sValue)
     .at(insertAt)
     .then(() => {
-      console.log(`${sModel} inserted on index.t.ts`);
+      console.log(`${sModel} inserted on index.d.ts`);
     });
 };
 
