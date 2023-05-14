@@ -32,16 +32,14 @@ export default [
         format: 'es',
         sourcemap: 'inline',
         banner,
-        exports: 'named',
-        compact: true
+        exports: 'named'
       },
       {
         file: pkg.main,
         format: 'cjs',
         sourcemap: 'inline',
         banner,
-        exports: 'named',
-        compact: true
+        exports: 'named'
       }
     ],
     external: arExternals,
@@ -57,7 +55,9 @@ export default [
       pluginNodeResolve({
         browser: false
       }),
-      terser()
+      terser({
+        keep_classnames: true
+      })
     ]
   }
 ];
